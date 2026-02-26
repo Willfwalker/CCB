@@ -9,6 +9,11 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
 
+if (typeof window !== "undefined") {
+  ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.config({ ignoreMobileResize: true });
+}
+
 /* ─── Data ─────────────────────────────────────────── */
 
 interface LiturgicalStation {

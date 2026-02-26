@@ -9,6 +9,11 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
+if (typeof window !== "undefined") {
+  ScrollTrigger.normalizeScroll(true);
+  ScrollTrigger.config({ ignoreMobileResize: true });
+}
+
 const VALUES = [
     {
         id: 1,
