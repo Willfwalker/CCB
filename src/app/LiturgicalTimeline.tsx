@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
 
 if (typeof window !== "undefined") {
+  ScrollTrigger.normalizeScroll(true);
   ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
@@ -212,7 +213,7 @@ export default function LiturgicalTimeline() {
           pin: vp,
           start: "top top",
           end: "bottom bottom",
-          scrub: isMobile ? 0.8 : 2.0,
+          scrub: isMobile ? 1.5 : 2.5,
         },
       });
 

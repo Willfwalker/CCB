@@ -226,7 +226,7 @@ function FamilySection() {
               ✕
             </button>
 
-            <div className="border-l-2 border-brand pl-6 md:pl-8">
+            <div className="border-l-2 border-navy pl-6 md:pl-8">
               <h3 className="font-heading text-2xl md:text-3xl font-semibold text-poppy mb-4">
                 Family
               </h3>

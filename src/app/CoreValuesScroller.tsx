@@ -189,7 +189,7 @@ export default function CoreValuesScroller() {
                 pin: true,
                 start: "top top",
                 end: isMobile ? "+=1500" : "+=2500",
-                scrub: isMobile ? 0.6 : 1.5,
+                scrub: isMobile ? 1.2 : 2,
             }
         });
 
