@@ -20,6 +20,9 @@
 # production
 /build
 
+#firbase
+firebase-debug.log
+
 # misc
 .DS_Store
 *.pem
