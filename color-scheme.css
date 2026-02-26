@@ -1,0 +1,65 @@
+/* ==========================================================
+   Christ Church Bellingham — Design Tokens
+   Extracted from: https://christchurchpress.com/
+   ========================================================== */
+
+/* ── Fonts ───────────────────────────────────────────────
+   Faculty Glyphic — headlines, subheads
+   Work Sans — subheads, body
+   Crimson Text — subheads, body
+   ──────────────────────────────────────────────────────── */
+
+:root {
+   /* ── Typography ──────────────────────────────────────── */
+   --font-heading: 'Faculty Glyphic', 'Crimson Text', serif;
+   --font-subheading-sans: 'Work Sans', sans-serif;
+   --font-subheading-serif: 'Crimson Text', serif;
+   --font-body-sans: 'Work Sans', sans-serif;
+   --font-body-serif: 'Crimson Text', serif;
+   --font-body: 'Crimson Text', serif;
+
+   /* ── Primary Brand (Deep Red) ───────────────────────── */
+   --color-primary: #B32E2A;
+   /* Deep red — buttons, CTAs, brand accent    */
+   --color-primary-lt: color-mix(in srgb, var(--color-primary), #fff 64%);
+   --color-primary-xlt: color-mix(in srgb, var(--color-primary), #fff 80%);
+   --color-primary-dk: color-mix(in srgb, var(--color-primary), #000 8%);
+   --color-primary-xdk: color-mix(in srgb, var(--color-primary), #000 12%);
+
+   /* ── Gold Accent ─────────────────────────────────────── */
+   --gold: #E2A66F;
+   /* Warm copper/gold — accent, highlights      */
+   --gold-lt: color-mix(in srgb, var(--gold), #fff 64%);
+   --gold-dk: color-mix(in srgb, var(--gold), #000 12%);
+
+   /* ── Core Palette ──────────────────────────────────── */
+   --paper: #F4F0E4;
+   /* Off-white — page background               */
+   --charcoal: #333333;
+   /* Dark charcoal — primary text               */
+   --navy: #202648;
+   /* Navy blue                                  */
+   --drk-green: #043023;
+   /* Dark Green                                 */
+   --earth: #54493B;
+   /* Dark brown — secondary text, headings      */
+   --slate: #C2C2C2;
+   /* Medium gray — muted/tertiary text          */
+   --sand: #cbc9ad;
+   /* Tan — subtle borders, dividers             */
+
+   /* ── Accent Colors ─────────────────────────────────── */
+   --wine: #69140e;
+   /* Deep wine red — emphasis, alerts           */
+   --sea: #32936f;
+   /* Green — accent, links, success             */
+   --sky: #74b3ce;
+   /* Blue — secondary accent                    */
+
+   /* ── Dark Tones ────────────────────────────────────── */
+   --shale: #383839;
+   /* Dark gray — footer, dark sections          */
+   --onyx: #151413;
+   /* Near-black — deepest dark                  */
+   --black: #000000;
+}
