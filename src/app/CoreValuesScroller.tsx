@@ -9,11 +9,6 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
-if (typeof window !== "undefined") {
-  ScrollTrigger.normalizeScroll(true);
-  ScrollTrigger.config({ ignoreMobileResize: true });
-}
-
 const VALUES = [
     {
         id: 1,
@@ -93,6 +88,16 @@ export default function CoreValuesScroller() {
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     const [selectedValue, setSelectedValue] = useState<typeof VALUES[0] | null>(null);
+
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (selectedValue) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => { document.body.style.overflow = ""; };
+    }, [selectedValue]);
     const [layout, setLayout] = useState<{
         w: number;
         h: number;
@@ -361,7 +366,7 @@ export default function CoreValuesScroller() {
                         className="absolute inset-0 bg-charcoal/80 md:backdrop-blur-sm cursor-pointer animate-fade-in"
                         onClick={() => setSelectedValue(null)}
                     />
-                    <div className="relative bg-paper rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-reveal-scale overflow-y-auto max-h-[85vh] z-50 border-t-[4px]" style={{ borderColor: selectedValue.colorVar }}>
+                    <div className="relative bg-paper rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-reveal-scale overflow-y-auto max-h-[85vh] z-50 border-t-[4px] overscroll-contain" style={{ borderColor: selectedValue.colorVar }}>
                         <button
                             onClick={() => setSelectedValue(null)}
                             className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-earth/60 hover:text-charcoal hover:bg-sand/30 rounded-full transition-colors text-xl"

@@ -10,7 +10,6 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
 
 if (typeof window !== "undefined") {
-  ScrollTrigger.normalizeScroll(true);
   ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
@@ -29,16 +28,6 @@ interface LiturgicalStation {
 const STATIONS: LiturgicalStation[] = [
   {
     id: 1,
-    title: "Call to Worship",
-    subtitle: "Invocation",
-    description:
-      "God initiates. Our worship begins not with our effort but with His summons — a word from Scripture calling us out of the world and into His presence.",
-    scriptureRef: "Psalm 95:6–7",
-    extendedDetails: "In the Call to Worship, we are reminded that Christianity is a religion of revelation. We do not find God; He finds us. The minister speaks on behalf of God, calling the congregation to assemble. This echoes the gathering of Israel at Mount Sinai and anticipates the great gathering of the redeemed at the end of the age. \n\n Furthermore, the Call to Worship establishes the posture of the entire service: God speaks, and we respond. Throughout the week, we are bombarded by competing voices calling us to worship our careers, our comforts, and our own desires. The divine summons cuts through this noise, reorienting our hearts back to their true north. It is an act of spiritual warfare, a declaration that the Lord reigns and that all other allegiances are secondary.",
-    extendedVerses: ["Hebrews 12:18-24", "Revelation 7:9-10"]
-  },
-  {
-    id: 2,
     title: "Confession & Pardon",
     subtitle: "Sin Confessed, Grace Declared",
     description:
@@ -48,7 +37,7 @@ const STATIONS: LiturgicalStation[] = [
     extendedVerses: ["Psalm 51:1-4", "Romans 8:1", "Colossians 2:13-14"]
   },
   {
-    id: 3,
+    id: 2,
     title: "Sermon",
     subtitle: "The Preaching of God's Word",
     description:
@@ -58,7 +47,7 @@ const STATIONS: LiturgicalStation[] = [
     extendedVerses: ["2 Timothy 4:1-2", "Nehemiah 8:8", "1 Thessalonians 2:13"]
   },
   {
-    id: 4,
+    id: 3,
     title: "Creed & Intercession",
     subtitle: "We Respond Together",
     description:
@@ -68,7 +57,7 @@ const STATIONS: LiturgicalStation[] = [
     extendedVerses: ["1 Timothy 2:1-2", "Jude 1:3", "Ephesians 6:18"]
   },
   {
-    id: 5,
+    id: 4,
     title: "Table & Sending",
     subtitle: "Communion and Benediction",
     description:
@@ -138,6 +127,16 @@ export default function LiturgicalTimeline() {
   const introTextRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [selectedStation, setSelectedStation] = useState<LiturgicalStation | null>(null);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedStation) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [selectedStation]);
   const [pathData, setPathData] = useState<{
     d: string;
     stops: { x: number; y: number; side: "left" | "right" | "center" }[];
@@ -363,7 +362,7 @@ export default function LiturgicalTimeline() {
     };
   };
 
-  const containerHeight = isMobile ? "420vh" : "1000vh";
+  const containerHeight = isMobile ? "350vh" : "800vh";
 
   return (
     <>
@@ -502,7 +501,7 @@ export default function LiturgicalTimeline() {
             className="absolute inset-0 bg-black/40 md:backdrop-blur-sm cursor-pointer"
             onClick={() => setSelectedStation(null)}
           />
-          <div className="relative bg-paper border-t-[3px] border-brand rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-in fade-in zoom-in-95 duration-200 overflow-y-auto max-h-[85vh]">
+          <div className="relative bg-paper border-t-[3px] border-brand rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-in fade-in zoom-in-95 duration-200 overflow-y-auto max-h-[85vh] overscroll-contain">
             <button
               onClick={() => setSelectedStation(null)}
               className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-earth/60 hover:text-charcoal hover:bg-sand/30 rounded-full transition-colors text-lg"
