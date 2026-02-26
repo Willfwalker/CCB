@@ -111,8 +111,8 @@ export default function CoreValuesScroller() {
             cardWidth = Math.min(130, w * 0.35);
             const cx = w * 0.12; // trunk on left
             const mainLineEndpoint = h * 0.92;
-            const startY = Math.max(h * 0.22, 160); // start below header + title
-            const spacing = (h * 0.72) / 5;
+            const startY = Math.max(h * 0.28, 180); // start below header + title
+            const spacing = (h * 0.62) / 5;
 
             positions = VALUES.map((_, i) => ({
                 x: w * 0.55,
@@ -161,6 +161,8 @@ export default function CoreValuesScroller() {
     useGSAP(() => {
         if (!layout || !containerRef.current || !viewportRef.current) return;
 
+        const isMobile = layout.w < 1024;
+
         // Reset styles
         gsap.set(titleTextRef.current, { opacity: 0, y: 20 });
         gsap.set(subtitleTextRef.current, { opacity: 0, y: 20 });
@@ -168,17 +170,16 @@ export default function CoreValuesScroller() {
             if (path) gsap.set(path, { drawSVG: "0%" });
         });
         cardsRef.current.forEach(card => {
-            if (card) gsap.set(card, { opacity: 0, y: 30, scale: 0.9, pointerEvents: "none" });
+            if (card) gsap.set(card, { opacity: 0, y: 30, ...(isMobile ? {} : { scale: 0.9 }), pointerEvents: "none" });
         });
         if (buttonRef.current) gsap.set(buttonRef.current, { opacity: 0, y: 30, pointerEvents: "none" });
-
         const master = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
                 pin: true,
                 start: "top top",
-                end: "+=2500",
-                scrub: 1.5,
+                end: isMobile ? "+=1500" : "+=2500",
+                scrub: isMobile ? 0.6 : 1.5,
             }
         });
 
@@ -212,11 +213,11 @@ export default function CoreValuesScroller() {
                 master.to(card, {
                     opacity: 1,
                     y: 0,
-                    scale: 1,
+                    ...(isMobile ? {} : { scale: 1 }),
                     pointerEvents: "auto",
-                    duration: 0.8,
-                    ease: "back.out(1.2)"
-                }, t + (index * 0.15)); // stagger
+                    duration: isMobile ? 0.5 : 0.8,
+                    ease: isMobile ? "power2.out" : "back.out(1.2)"
+                }, t + (index * (isMobile ? 0.08 : 0.15))); // stagger
             }
         });
 
@@ -247,10 +248,10 @@ export default function CoreValuesScroller() {
                     {/* Central Titles */}
                     {layout && (
                         <div
-                            className={`absolute flex flex-col items-center justify-center text-center w-full max-w-2xl left-1/2 -translate-x-1/2 pointer-events-none z-30 ${window.innerWidth < 1024 ? "top-[100px]" : "top-[15%]"
+                            className={`absolute flex flex-col items-center justify-center text-center w-full max-w-2xl left-1/2 -translate-x-1/2 pointer-events-none z-30 ${layout.w < 1024 ? "top-[100px]" : "top-[15%]"
                                 }`}
                         >
-                            <div className="bg-paper/80 backdrop-blur-sm py-2 px-4 md:px-6 rounded-2xl">
+                            <div className="bg-paper/90 md:bg-paper/80 md:backdrop-blur-sm py-2 px-4 md:px-6 rounded-2xl">
                                 <h2 ref={titleTextRef} className="font-display text-2xl sm:text-4xl md:text-5xl font-semibold text-charcoal mb-2 md:mb-4">
                                     Our Core Values
                                 </h2>
@@ -301,7 +302,7 @@ export default function CoreValuesScroller() {
                                         key={val.id}
                                         ref={(el) => { cardsRef.current[i] = el; }}
                                         onClick={() => setSelectedValue(val)}
-                                        className="absolute z-30 group bg-paper rounded-xl shadow-[0_12px_40px_rgba(84,73,59,0.18)] p-2.5 sm:p-4 md:p-6 cursor-pointer flex flex-col justify-center text-center items-center hover:-translate-y-2 transition-transform duration-300 border-t-[3px]"
+                                        className="absolute z-30 group bg-paper rounded-xl shadow-[0_12px_40px_rgba(84,73,59,0.18)] p-2.5 sm:p-4 md:p-6 cursor-pointer flex flex-col justify-center text-center items-center md:hover:-translate-y-2 md:transition-transform md:duration-300 border-t-[3px]"
                                         style={{
                                             top: pos.y,
                                             left: pos.x,
@@ -352,7 +353,7 @@ export default function CoreValuesScroller() {
             {selectedValue && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
                     <div
-                        className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm cursor-pointer animate-fade-in"
+                        className="absolute inset-0 bg-charcoal/80 md:backdrop-blur-sm cursor-pointer animate-fade-in"
                         onClick={() => setSelectedValue(null)}
                     />
                     <div className="relative bg-paper rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-reveal-scale overflow-y-auto max-h-[85vh] z-50 border-t-[4px]" style={{ borderColor: selectedValue.colorVar }}>

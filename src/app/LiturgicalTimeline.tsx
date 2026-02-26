@@ -196,8 +196,8 @@ export default function LiturgicalTimeline() {
     const w = vp.offsetWidth;
     const h = vp.offsetHeight;
 
-    // Gaps = 1.2x to 1.5x viewport height to stretch it way out
-    const stepY = isMobile ? h * 1.2 : h * 1.5;
+    // Gaps between stations — smaller on mobile for less total scroll
+    const stepY = isMobile ? h * 0.7 : h * 1.5;
     const padTop = h / 2;
     const padBottom = h / 2;
 
@@ -248,17 +248,7 @@ export default function LiturgicalTimeline() {
           pin: vp,
           start: "top top",
           end: "bottom bottom",
-          scrub: 2.0, // smoother and slightly slower scrubbing to catch up
-          onRefresh: () => {
-            // Recalculate path on resize within the timeline to keep it updated
-            const w = vp.offsetWidth;
-            const h = vp.offsetHeight;
-            const sy = window.innerWidth < 768 ? h * 1.2 : h * 1.5;
-            const newData = buildWindingPath(w, window.innerWidth < 768, h / 2, sy);
-            if (drawnPath) {
-              drawnPath.setAttribute("d", newData.d);
-            }
-          },
+          scrub: isMobile ? 0.8 : 2.0,
         },
       });
 
@@ -408,7 +398,7 @@ export default function LiturgicalTimeline() {
     };
   };
 
-  const containerHeight = isMobile ? "1800vh" : "2200vh"; // Very tall container for massive scrub distance
+  const containerHeight = isMobile ? "900vh" : "2200vh";
 
   return (
     <>
@@ -420,7 +410,9 @@ export default function LiturgicalTimeline() {
           style={{ height: containerHeight }}
         >
           {/* ── Pinned viewport ── */}
-          <div ref={viewportRef} className="liturgy-viewport relative w-full h-screen overflow-hidden">
+          <div ref={viewportRef} className="liturgy-viewport relative w-full h-screen">
+            {/* Inner clip wrapper — GSAP overrides overflow on the pinned element, so we clip here instead */}
+            <div className="relative w-full h-full overflow-hidden">
             {/* Intro text */}
             <div ref={introTextRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full max-w-2xl px-6 pointer-events-none z-30">
               <p className="font-display text-2xl md:text-3xl lg:text-4xl text-charcoal leading-relaxed font-medium">
@@ -432,7 +424,7 @@ export default function LiturgicalTimeline() {
             {pathData && (
               <div
                 ref={trackContainerRef}
-                className="absolute top-0 left-0 w-full will-change-transform"
+                className="absolute top-0 left-0 w-full"
                 style={{ height: `${pathData.height}px` }}
               >
                 {/* SVG winding path */}
@@ -442,27 +434,17 @@ export default function LiturgicalTimeline() {
                   viewBox={`0 0 ${pathData.w} ${pathData.height}`}
                   preserveAspectRatio="none"
                 >
-                  <defs>
-                    {/* Glow filter for the comet tail */}
-                    <filter id="comet-glow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="4" result="blur" />
-                      <feMerge>
-                        <feMergeNode in="blur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
-
-                  {/* 
-                    Background track (hidden or very faint). 
-                    The user requested to only see a small part of the line.
-                    We make it completely transparent so only the comet tail is visible. 
-                 */}
-                  <path
-                    fill="none"
-                    stroke="transparent"
-                    strokeWidth="2"
-                  />
+                  {!isMobile && (
+                    <defs>
+                      <filter id="comet-glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="4" result="blur" />
+                        <feMerge>
+                          <feMergeNode in="blur" />
+                          <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                      </filter>
+                    </defs>
+                  )}
 
                   {/* Drawn-on path (Comet Tail) */}
                   <path
@@ -472,14 +454,14 @@ export default function LiturgicalTimeline() {
                     stroke="var(--color-brand)"
                     strokeWidth="3.5"
                     strokeLinecap="round"
-                    filter="url(#comet-glow)"
+                    filter={isMobile ? undefined : "url(#comet-glow)"}
                   />
                 </svg>
 
                 {/* Traveling dot (Comet Head) */}
                 <div
                   ref={dotRef}
-                  className="liturgy-dot shadow-[0_0_15px_3px_var(--color-brand)]"
+                  className={`liturgy-dot ${isMobile ? "" : "shadow-[0_0_15px_3px_var(--color-brand)]"}`}
                   style={{
                     position: "absolute",
                     top: 0, left: 0,
@@ -504,7 +486,7 @@ export default function LiturgicalTimeline() {
                     {/* Accordion Content Container */}
                     <div
                       onClick={() => setSelectedStation(station)}
-                      className="group bg-paper border-t-[3px] border-brand rounded-b-xl shadow-[0_12px_40px_rgba(84,73,59,0.18)] p-4 md:p-8 m-2 pointer-events-auto flex flex-col items-center text-center cursor-pointer transition-transform hover:scale-[1.02] relative"
+                      className="group bg-paper border-t-[3px] border-brand rounded-b-xl shadow-[0_12px_40px_rgba(84,73,59,0.18)] p-4 md:p-8 m-2 pointer-events-auto flex flex-col items-center text-center cursor-pointer md:transition-transform md:hover:scale-[1.02] relative"
                     >
                       <span className="font-body text-[0.65rem] font-bold tracking-[0.3em] uppercase text-brand/80 pb-2">
                         Part {String(station.id).padStart(2, "0")}
@@ -543,6 +525,7 @@ export default function LiturgicalTimeline() {
                 ))}
               </div>
             )}
+          </div>{/* end inner clip wrapper */}
           </div>
         </div>
       </section>
@@ -551,7 +534,7 @@ export default function LiturgicalTimeline() {
       {selectedStation && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm cursor-pointer"
+            className="absolute inset-0 bg-black/40 md:backdrop-blur-sm cursor-pointer"
             onClick={() => setSelectedStation(null)}
           />
           <div className="relative bg-paper border-t-[3px] border-brand rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-in fade-in zoom-in-95 duration-200 overflow-y-auto max-h-[85vh]">

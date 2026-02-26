@@ -1,3 +1,379 @@
 [     504ms] [WARNING] Image with src "/dad_teaching.png" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
 [     528ms] [WARNING] Image with src "/favicon-cropped.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1906264ms] ReferenceError: Cannot access 'isMobile' before initialization
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js?id=%255Bproject%255D%252Fsrc%252Fapp%252FCoreValuesScroller.tsx+%255Bapp-client%255D+%2528ecmascript%2529:245:28)
+    at Array.forEach (<anonymous>)
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js?id=%255Bproject%255D%252Fsrc%252Fapp%252FCoreValuesScroller.tsx+%255Bapp-client%255D+%2528ecmascript%2529:240:30)
+    at f (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7377:27)
+    at Context.add (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7385:39)
+    at useGSAP.useIsomorphicLayoutEffect (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:13414:41)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14876:22)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at commitHookEffectListMount (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7266:167)
+    at commitHookLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7254:60)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7858:30)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+[ 1910696ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910767ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910767ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910768ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910768ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910799ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910799ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910876ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910885ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1910890ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1911153ms] ReferenceError: Cannot access 'isMobile' before initialization
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js?id=%255Bproject%255D%252Fsrc%252Fapp%252FCoreValuesScroller.tsx+%255Bapp-client%255D+%2528ecmascript%2529:245:28)
+    at Array.forEach (<anonymous>)
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js?id=%255Bproject%255D%252Fsrc%252Fapp%252FCoreValuesScroller.tsx+%255Bapp-client%255D+%2528ecmascript%2529:240:30)
+    at f (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7377:27)
+    at Context.add (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7385:39)
+    at useGSAP.useIsomorphicLayoutEffect (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:13414:41)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14876:22)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at commitHookEffectListMount (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7266:167)
+    at commitHookLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7254:60)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7858:30)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+[ 1912043ms] [WARNING] Image with src "/dad_teaching.png" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1912046ms] [WARNING] Image with src "/favicon-cropped.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1912226ms] ReferenceError: Cannot access 'isMobile' before initialization
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1155:28)
+    at Array.forEach (<anonymous>)
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1150:30)
+    at f (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7377:27)
+    at Context.add (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7385:39)
+    at useGSAP.useIsomorphicLayoutEffect (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:13414:41)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14876:22)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at commitHookEffectListMount (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7266:167)
+    at commitHookLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7254:60)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7858:30)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+[ 1912086ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1912087ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1916193ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1917036ms] [WARNING] Image with src "/dad_teaching.png" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1917039ms] [WARNING] Image with src "/favicon-cropped.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1917161ms] ReferenceError: Cannot access 'isMobile' before initialization
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1155:28)
+    at Array.forEach (<anonymous>)
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1150:30)
+    at f (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7377:27)
+    at Context.add (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7385:39)
+    at useGSAP.useIsomorphicLayoutEffect (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:13414:41)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14876:22)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at commitHookEffectListMount (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7266:167)
+    at commitHookLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7254:60)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7858:30)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+[ 1917068ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1917068ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1924736ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1925812ms] [WARNING] Image with src "/dad_teaching.png" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1925814ms] [WARNING] Image with src "/favicon-cropped.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1925930ms] ReferenceError: Cannot access 'isMobile' before initialization
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1155:28)
+    at Array.forEach (<anonymous>)
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1150:30)
+    at f (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7377:27)
+    at Context.add (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7385:39)
+    at useGSAP.useIsomorphicLayoutEffect (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:13414:41)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14876:22)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at commitHookEffectListMount (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7266:167)
+    at commitHookLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7254:60)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7858:30)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+[ 1925862ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1925862ms] [WARNING] Invalid scope @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1978303ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=yWKZny3AhJMY9V59H6IrJ' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[ 1979305ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=yWKZny3AhJMY9V59H6IrJ' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[ 1980307ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=yWKZny3AhJMY9V59H6IrJ' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[ 1981311ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=yWKZny3AhJMY9V59H6IrJ' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[ 1984148ms] [WARNING] Image with src "/favicon-cropped.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1984150ms] [WARNING] Image with src "/dad_teaching.png" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 1984319ms] ReferenceError: Cannot access 'isMobile' before initialization
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1155:28)
+    at Array.forEach (<anonymous>)
+    at CoreValuesScroller.useGSAP (http://localhost:3000/_next/static/chunks/src_app_87b447b3._.js:1150:30)
+    at f (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7377:27)
+    at Context.add (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:7385:39)
+    at useGSAP.useIsomorphicLayoutEffect (http://localhost:3000/_next/static/chunks/node_modules_66258475._.js:13414:41)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14876:22)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at commitHookEffectListMount (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7266:167)
+    at commitHookLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7254:60)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7858:30)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7861:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7955:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+    at commitLayoutEffectOnFiber (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:7857:17)
+    at recursivelyTraverseLayoutEffects (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:8537:105)
+[ 2001484ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2002280ms] [WARNING] Image with src "/dad_teaching.png" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2002283ms] [WARNING] Image with src "/favicon-cropped.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2002304ms] [WARNING] Image with src "/favicon-cropped.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2160915ms] [ERROR] ./src/app/LiturgicalTimeline.tsx:530:17
+Parsing ecmascript source code failed
+  528 |           </div>
+  529 |         </div>
+> 530 |       </section>
+      |                 ^
+> 531 |
+      | ^
+> 532 |       {/* Modal Overlay */}
+      | ^^^^^^^
+  533 |       {selectedStation && (
+  534 |         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+  535 |           <div
+
+Expected '</', got 'jsx text'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/LiturgicalTimeline.tsx [Client Component Browser]
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/LiturgicalTimeline.tsx [Client Component SSR]
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
