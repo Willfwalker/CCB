@@ -295,24 +295,19 @@ export default function Home() {
           {/* ── Logo ── */}
           <Link
             href="/"
-            className="flex items-center gap-4 group animate-nav-in"
+            className="flex items-center group animate-nav-in"
             style={{ opacity: 0 }}
           >
-            <div className="relative w-10 h-10 sm:w-14 sm:h-14 overflow-hidden rounded-sm shadow-sm">
+            <div
+              className="relative w-auto aspect-[5/2] transition-all duration-500"
+              style={{ height: scrolled ? "70px" : "100px" }}
+            >
               <Image
-                src="/favicon-cropped.png"
-                alt="Christ Church Bellingham crest"
+                src="/church-logo.png"
+                alt="Christ Church Bellingham logo"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
-            </div>
-            <div className="flex flex-col leading-none uppercase">
-              <span className="font-heading text-[0.75rem] sm:text-[1.15rem] font-semibold tracking-[0.14em] text-poppy group-hover:text-poppy/80 transition-colors duration-500">
-                Christ Church
-              </span>
-              <span className="font-heading text-[0.75rem] sm:text-[1.15rem] font-semibold tracking-[0.14em] text-poppy group-hover:text-poppy/80 transition-colors duration-500">
-                Bellingham
-              </span>
             </div>
           </Link>
 
