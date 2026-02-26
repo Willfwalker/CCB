@@ -34,41 +34,21 @@ const STATIONS: LiturgicalStation[] = [
     description:
       "God initiates. Our worship begins not with our effort but with His summons — a word from Scripture calling us out of the world and into His presence.",
     scriptureRef: "Psalm 95:6–7",
-    extendedDetails: "In the Call to Worship, we are reminded that Christianity is a religion of revelation. We do not find God; He finds us. The minister speaks on behalf of God, calling the congregation to assemble. This echoes the gathering of Israel at Mount Sinai and anticipates the great gathering of the redeemed at the end of the age. \n\n Furthermore, the Call to Worship establishes the posture of the entire service: God speaks, and we respond. Throughout the week, we are bombarded by competing voices calling us to worship our careers, our comforts, and our own desires. The divine summons cuts through this noise, reorienting our hearts back to their true north. It is an act of spiritual warfare, a declaration that the Lord reigns and that all other allegiances are secondary. \n\n Historically, this element has always marked Christian gatherings. From the earliest centuries, believers understood that they were not merely having a meeting, but were being summoned into an audience with the King. This requires a profound shift in mindset. We are not consumers evaluating a product, but subjects responding to a sovereign summons. \n\n This is why we stand during this portion of the service. Standing is a physical expression of a spiritual reality—alertness, respect, and readiness. Just as subjects stand when a ruler enters the room, we stand when the King of the universe issues His call.",
+    extendedDetails: "In the Call to Worship, we are reminded that Christianity is a religion of revelation. We do not find God; He finds us. The minister speaks on behalf of God, calling the congregation to assemble. This echoes the gathering of Israel at Mount Sinai and anticipates the great gathering of the redeemed at the end of the age. \n\n Furthermore, the Call to Worship establishes the posture of the entire service: God speaks, and we respond. Throughout the week, we are bombarded by competing voices calling us to worship our careers, our comforts, and our own desires. The divine summons cuts through this noise, reorienting our hearts back to their true north. It is an act of spiritual warfare, a declaration that the Lord reigns and that all other allegiances are secondary.",
     extendedVerses: ["Hebrews 12:18-24", "Revelation 7:9-10"]
   },
   {
     id: 2,
-    title: "Confessions",
-    subtitle: "Corporate Confession of Sin",
+    title: "Confession & Pardon",
+    subtitle: "Sin Confessed, Grace Declared",
     description:
-      "Having entered God's holy presence, we see ourselves rightly. Together we confess our sins — not to earn forgiveness but to receive it.",
+      "Having entered God's holy presence, we see ourselves rightly. Together we confess our sins — and hear His promise that we are forgiven in Christ.",
     scriptureRef: "1 John 1:9",
-    extendedDetails: "True worship requires truth-telling. In the Light of God's perfect holiness, our own sin becomes undeniable. By confessing corporately, we acknowledge that we are a community of recovering sinners. We do not hide our faults, because we know the character of the God we approach.",
-    extendedVerses: ["Psalm 51:1-4", "Proverbs 28:13", "James 5:16"]
+    extendedDetails: "True worship requires truth-telling. In the light of God's perfect holiness, our own sin becomes undeniable. By confessing corporately, we acknowledge that we are a community of recovering sinners. But the Gospel is an objective reality outside of ourselves — the minister stands as a herald of good news, authoritatively declaring that Christ has paid the penalty for every sin just confessed. This rhythm of confession and pardon trains our hearts to rest in grace rather than our own performance.",
+    extendedVerses: ["Psalm 51:1-4", "Romans 8:1", "Colossians 2:13-14"]
   },
   {
     id: 3,
-    title: "Assurance of Pardon",
-    subtitle: "Words of Absolution",
-    description:
-      "The minister speaks God's own promise: your sins are forgiven in Christ. This is not a wish but a declaration grounded in the cross.",
-    scriptureRef: "Romans 8:1",
-    extendedDetails: "The Gospel is an objective reality outside of ourselves. The minister stands as a herald of this good news, authoritatively declaring that Christ has paid the penalty for every sin just confessed. Hearing this week after week trains our hearts to rest in grace rather than our own performance.",
-    extendedVerses: ["Colossians 2:13-14", "Micah 7:18-19"]
-  },
-  {
-    id: 4,
-    title: "Song of Ascent",
-    subtitle: "Hymn of Praise",
-    description:
-      "Forgiven and restored, the congregation rises in song. Like the pilgrims ascending to Jerusalem, we lift our voices.",
-    scriptureRef: "Psalm 122:1",
-    extendedDetails: "Joy is the necessary response to grace. Our singing is not merely emotional expression; it is deeply formative. Through melody and poetry, we embed the truths of the Gospel into our memories and affections, encouraging one another as we sing.",
-    extendedVerses: ["Ephesians 5:19", "Colossians 3:16"]
-  },
-  {
-    id: 5,
     title: "Sermon",
     subtitle: "The Preaching of God's Word",
     description:
@@ -78,44 +58,24 @@ const STATIONS: LiturgicalStation[] = [
     extendedVerses: ["2 Timothy 4:1-2", "Nehemiah 8:8", "1 Thessalonians 2:13"]
   },
   {
-    id: 6,
-    title: "Profession of Faith",
-    subtitle: "The Creed",
+    id: 4,
+    title: "Creed & Intercession",
+    subtitle: "We Respond Together",
     description:
-      "Having heard God's Word, we respond with the ancient words of the Church. Reciting the Creed together, we confess our shared belief.",
+      "Having heard God's Word, we respond with the ancient words of the Church and intercede as a royal priesthood for the suffering, the lost, and the nations.",
     scriptureRef: "Romans 10:9–10",
-    extendedDetails: "The Christian faith was not invented yesterday. By confessing a historic creed (such as the Apostles' or Nicene Creed), we link arms with the saints across the centuries and around the globe, anchoring our lives in the core tenets of historical orthodoxy.",
-    extendedVerses: ["1 Corinthians 15:3-4", "Jude 1:3"]
+    extendedDetails: "The Christian faith was not invented yesterday. By confessing a historic creed, we link arms with the saints across the centuries. And as a royal priesthood, we look beyond our own walls — the pastor leads prayers bringing the tears, fears, and desperate needs of both our local community and the global world before a sovereign, merciful Father.",
+    extendedVerses: ["1 Timothy 2:1-2", "Jude 1:3", "Ephesians 6:18"]
   },
   {
-    id: 7,
-    title: "Prayer for the World and Church",
-    subtitle: "Pastoral Intercession",
+    id: 5,
+    title: "Table & Sending",
+    subtitle: "Communion and Benediction",
     description:
-      "As a royal priesthood, we intercede. The pastor leads prayers for the suffering, the lost, the nations, and the Church.",
-    scriptureRef: "1 Timothy 2:1–2",
-    extendedDetails: "We look beyond our own walls and our own needs. In pastoral prayer, the congregation exercises its priestly role by bringing the tears, fears, and desperate needs of the local community and the global world before a sovereign, merciful Father.",
-    extendedVerses: ["Philippians 4:6", "Ephesians 6:18"]
-  },
-  {
-    id: 8,
-    title: "Lord's Supper",
-    subtitle: "The Holy Communion",
-    description:
-      "Christ invites us to His table. In bread and wine, we receive and proclaim His body broken and blood shed.",
+      "Christ invites us to His table — in bread and wine we receive His body broken and blood shed. Then God has the last word, blessing and sending us into the world.",
     scriptureRef: "1 Corinthians 11:26",
-    extendedDetails: "The Eucharist is the family meal of the new covenant. It uniquely engages our physical senses—taste, touch, sight, and smell—to reassure us of Christ's spiritual presence and His future return to feast with us in the renewed creation.",
-    extendedVerses: ["Matthew 26:26-28", "John 6:53-58", "Revelation 19:9"]
-  },
-  {
-    id: 9,
-    title: "Benediction",
-    subtitle: "The Sending",
-    description:
-      "God has the last word. The minister raises his hands and speaks God's blessing over His people, sending us into the world.",
-    scriptureRef: "Numbers 6:24–26",
-    extendedDetails: "We are blessed in order to be a blessing. The benediction is not simply a dismissal, but an impartation of divine grace and peace meant to empower us for our weekly liturgy of loving our neighbors and serving our city.",
-    extendedVerses: ["2 Corinthians 13:14", "Hebrews 13:20-21"]
+    extendedDetails: "The Eucharist is the family meal of the new covenant. It uniquely engages our physical senses—taste, touch, sight, and smell—to reassure us of Christ's spiritual presence. And then we are blessed in order to be a blessing. The benediction is not simply a dismissal, but an impartation of divine grace and peace meant to empower us for our weekly liturgy of loving our neighbors and serving our city.",
+    extendedVerses: ["Matthew 26:26-28", "Numbers 6:24-26", "2 Corinthians 13:14"]
   },
 ];
 
@@ -403,7 +363,7 @@ export default function LiturgicalTimeline() {
     };
   };
 
-  const containerHeight = isMobile ? "900vh" : "2200vh";
+  const containerHeight = isMobile ? "420vh" : "1000vh";
 
   return (
     <>
