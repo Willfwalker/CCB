@@ -283,25 +283,29 @@ export default function VisitPage() {
 
                         </div>
 
-                        {/* Sidebar Area: What to expect */}
-                        <div className="bg-navy/5 p-8 rounded-lg space-y-8 h-fit">
-                            <section>
-                                <h2 className="font-heading text-3xl text-charcoal font-semibold mb-6">What to expect</h2>
-                                <div className="prose prose-lg text-earth/85 font-body-crimson space-y-4">
-                                    <p>
-                                        Coming to a church for the first time can be intimidating. We are glad that you might take that risk by joining us. We are a loving and energetic community with people of all ages, and we look forward to meeting you.
-                                    </p>
-                                    <p>
-                                        Our services are “liturgical,” meaning that our Sunday worship follows a historic ordering of prayers, songs, teaching, and communion, which together act as a dialogue between us and God. He invites us into his presence, forgives our sins, teaches us from the Bible, and feeds our souls. We respond by confessing our sins together, singing hymns and spiritual songs, and offering ourselves for his service. It is a beautiful and rich exchange, but it may take a few visits to get used to it. We often invite new people to try coming to our church for seven Sundays to really get a feel for how we do things.
-                                    </p>
-                                    <p>
-                                        Though we observe historic church traditions, we are definitely a “Bellingham church.” Dress is casual. The music is eclectic Americana folk. Our manner is informal but sincere. Expect both joy and gravity as we approach the Almighty God.
-                                    </p>
-                                    <p className="font-semibold text-charcoal pt-4 border-t border-brand/20">
-                                        We hope you come for a visit!
-                                    </p>
-                                </div>
-                            </section>
+                        {/* Sidebar Area: Image + What to expect */}
+                        <div className="space-y-8 h-fit">
+                            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
+                                <Image
+                                    src="/dad_teaching.png"
+                                    alt="Teaching at Christ Church Bellingham"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="bg-navy/5 p-8 rounded-lg">
+                                <section>
+                                    <h2 className="font-heading text-3xl text-charcoal font-semibold mb-6">What to expect</h2>
+                                    <div className="prose prose-lg text-earth/85 font-body-crimson space-y-4">
+                                        <p>
+                                            Though we observe historic church traditions, we are definitely a &ldquo;Bellingham church.&rdquo; Dress is casual. The music is eclectic Americana folk. Our manner is informal but sincere. Expect both joy and gravity as we approach the Almighty God.
+                                        </p>
+                                        <p className="font-semibold text-charcoal pt-4 border-t border-brand/20">
+                                            We hope you come for a visit!
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
 
                     </div>

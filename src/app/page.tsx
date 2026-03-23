@@ -527,7 +527,7 @@ export default function Home() {
       <section className="relative h-screen min-h-[540px] overflow-hidden">
         {/* Background */}
         <Image
-          src="/dad_teaching.png"
+          src={process.env.NEXT_PUBLIC_HERO_MODE === "teaching" ? "/dad_teaching.png" : "/church_building.png"}
           alt="Pastor teaching the congregation bathed in golden light"
           fill
           className="object-cover object-[center_28%]"
