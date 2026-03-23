@@ -12,6 +12,8 @@
   --color-sea: #32936f;
   --color-sky: #74b3ce;
   --color-poppy: #dc9a40;
+  --color-gold: #E2A66F;
+  --color-gold-dk: color-mix(in srgb, var(--color-gold), #000 12%);
   --color-shale: #383839;
   --color-forest: #212721;
   --color-onyx: #151413;
@@ -45,6 +47,8 @@
   --color-sea: #32936f;
   --color-sky: #74b3ce;
   --color-poppy: #dc9a40;
+  --color-gold: #E2A66F;
+  --color-gold-dk: color-mix(in srgb, var(--color-gold), #000 12%);
   --color-shale: #383839;
   --color-forest: #212721;
   --color-onyx: #151413;

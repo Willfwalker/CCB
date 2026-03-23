@@ -83,6 +83,7 @@ export default function CoreValuesScroller() {
     const titleTextRef = useRef<HTMLDivElement>(null);
     const subtitleTextRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLDivElement>(null);
+    const keepScrollingRef = useRef<HTMLDivElement>(null);
     const svgRef = useRef<SVGSVGElement>(null);
     const pathsRef = useRef<(SVGPathElement | null)[]>([]);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -176,6 +177,7 @@ export default function CoreValuesScroller() {
         // Reset styles
         gsap.set(titleTextRef.current, { opacity: 0, y: 20 });
         gsap.set(subtitleTextRef.current, { opacity: 0, y: 20 });
+        if (keepScrollingRef.current) gsap.set(keepScrollingRef.current, { opacity: 0, y: 20 });
         pathsRef.current.forEach(path => {
             if (path) gsap.set(path, { drawSVG: "0%" });
         });
@@ -189,7 +191,9 @@ export default function CoreValuesScroller() {
                 pin: true,
                 start: "top top",
                 end: isMobile ? "+=1500" : "+=2500",
-                scrub: isMobile ? 1.2 : 2,
+                scrub: 1, // lowered from 2 to keep up better during fast scrolling
+                invalidateOnRefresh: true, // helps cold load recalculations
+                fastScrollEnd: true, // instantly snap to end state if user aggressively scrolls past
             }
         });
 
@@ -198,6 +202,9 @@ export default function CoreValuesScroller() {
         // Phase 1: Intro text
         master.to(titleTextRef.current, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, t);
         master.to(subtitleTextRef.current, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, t + 0.2);
+        if (keepScrollingRef.current) {
+            master.to(keepScrollingRef.current, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, t + 0.4);
+        }
         t += 1.5;
 
         // Phase 2: Draw the main trunk line (path 0)
@@ -233,7 +240,7 @@ export default function CoreValuesScroller() {
 
         t += 1.5;
 
-        // Phase 5: Reveal the Meet Our Staff button
+        // Phase 5: Reveal the Meet Our Staff button & Hide Keep Scrolling
         if (buttonRef.current) {
             master.to(buttonRef.current, {
                 opacity: 1,
@@ -241,6 +248,12 @@ export default function CoreValuesScroller() {
                 pointerEvents: "auto",
                 duration: 0.8,
                 ease: "back.out(1.2)"
+            }, t);
+        }
+        if (keepScrollingRef.current) {
+            master.to(keepScrollingRef.current, {
+                opacity: 0,
+                duration: 0.5
             }, t);
         }
 
@@ -337,6 +350,16 @@ export default function CoreValuesScroller() {
                                     </div>
                                 );
                             })}
+
+                            {/* Keep Scrolling Indicator */}
+                            <div ref={keepScrollingRef} className="absolute bottom-6 left-6 z-40 flex items-center gap-2 text-charcoal/40 bg-paper/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-sand/50 pointer-events-none md:bottom-8 md:left-8">
+                                <span className="font-subheading-work text-[0.6rem] md:text-[0.65rem] font-bold tracking-[0.2em] uppercase">Keep Scrolling</span>
+                                <div className="animate-bounce">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                    </svg>
+                                </div>
+                            </div>
 
                             {/* Meet Our Staff Button */}
                             <div ref={buttonRef} className="absolute z-40"

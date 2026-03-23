@@ -124,6 +124,7 @@ export default function LiturgicalTimeline() {
   const svgRef = useRef<SVGSVGElement>(null);
   const drawnPathRef = useRef<SVGPathElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
+  const keepScrollingRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const introTextRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -213,7 +214,9 @@ export default function LiturgicalTimeline() {
           pin: vp,
           start: "top top",
           end: "bottom bottom",
-          scrub: isMobile ? 1.5 : 2.5,
+          scrub: isMobile ? 1 : 1.5,
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
         },
       });
 
@@ -303,8 +306,12 @@ export default function LiturgicalTimeline() {
             timeCursor += 0.3;
           }
         }
-
         currentProgress = slowTargetProgress;
+      }
+
+      // Hide Keep Scrolling at the end of the timeline
+      if (keepScrollingRef.current) {
+        master.to(keepScrollingRef.current, { opacity: 0, duration: 0.5 }, timeCursor);
       }
 
       // Handle resize
@@ -378,119 +385,130 @@ export default function LiturgicalTimeline() {
           <div ref={viewportRef} className="liturgy-viewport relative w-full h-screen">
             {/* Inner clip wrapper — GSAP overrides overflow on the pinned element, so we clip here instead */}
             <div className="relative w-full h-full overflow-hidden">
-            {/* Intro text */}
-            <div ref={introTextRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full max-w-2xl px-6 pointer-events-none z-30">
-              <p className="font-display text-2xl md:text-3xl lg:text-4xl text-charcoal leading-relaxed font-medium">
-                God tells a story in the Bible, we use liturgy to be reminded of this story every week.
-              </p>
-            </div>
+              {/* Intro text */}
+              <div ref={introTextRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-full max-w-2xl px-6 pointer-events-none z-30">
+                <p className="font-display text-2xl md:text-3xl lg:text-4xl text-charcoal leading-relaxed font-medium">
+                  God tells a story in the Bible, we use liturgy to be reminded of this story every week.
+                </p>
+              </div>
 
-            {/* Tracking Sub-Container (moves up as you scroll) */}
-            {pathData && (
-              <div
-                ref={trackContainerRef}
-                className="absolute top-0 left-0 w-full"
-                style={{ height: `${pathData.height}px` }}
-              >
-                {/* SVG winding path */}
-                <svg
-                  ref={svgRef}
-                  className="absolute top-0 left-0 w-full h-full pointer-events-none"
-                  viewBox={`0 0 ${pathData.w} ${pathData.height}`}
-                  preserveAspectRatio="none"
-                >
-                  {!isMobile && (
-                    <defs>
-                      <filter id="comet-glow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="4" result="blur" />
-                        <feMerge>
-                          <feMergeNode in="blur" />
-                          <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                      </filter>
-                    </defs>
-                  )}
-
-                  {/* Drawn-on path (Comet Tail) */}
-                  <path
-                    ref={drawnPathRef}
-                    d={pathData.d}
-                    fill="none"
-                    stroke="var(--color-brand)"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    filter={isMobile ? undefined : "url(#comet-glow)"}
-                  />
-                </svg>
-
-                {/* Traveling dot (Comet Head) */}
+              {/* Tracking Sub-Container (moves up as you scroll) */}
+              {pathData && (
                 <div
-                  ref={dotRef}
-                  className={`liturgy-dot ${isMobile ? "" : "shadow-[0_0_15px_3px_var(--color-brand)]"}`}
-                  style={{
-                    position: "absolute",
-                    top: 0, left: 0,
-                    width: 18,
-                    height: 18,
-                    borderRadius: "50%",
-                    backgroundColor: "var(--color-brand)",
-                    zIndex: 10
-                  }}
-                />
-
-                {/* Station Expanding Accordions */}
-                {STATIONS.map((station, index) => (
-                  <div
-                    key={station.id}
-                    ref={(el) => {
-                      cardRefs.current[index] = el;
-                    }}
-                    className="absolute overflow-hidden z-20 pointer-events-none"
-                    style={getCardStyle(index)}
+                  ref={trackContainerRef}
+                  className="absolute top-0 left-0 w-full"
+                  style={{ height: `${pathData.height}px` }}
+                >
+                  {/* SVG winding path */}
+                  <svg
+                    ref={svgRef}
+                    className="absolute top-0 left-0 w-full h-full pointer-events-none"
+                    viewBox={`0 0 ${pathData.w} ${pathData.height}`}
+                    preserveAspectRatio="none"
                   >
-                    {/* Accordion Content Container */}
+                    {!isMobile && (
+                      <defs>
+                        <filter id="comet-glow" x="-20%" y="-20%" width="140%" height="140%">
+                          <feGaussianBlur stdDeviation="4" result="blur" />
+                          <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                          </feMerge>
+                        </filter>
+                      </defs>
+                    )}
+
+                    {/* Drawn-on path (Comet Tail) */}
+                    <path
+                      ref={drawnPathRef}
+                      d={pathData.d}
+                      fill="none"
+                      stroke="var(--color-brand)"
+                      strokeWidth="3.5"
+                      strokeLinecap="round"
+                      filter={isMobile ? undefined : "url(#comet-glow)"}
+                    />
+                  </svg>
+
+                  {/* Traveling dot (Comet Head) */}
+                  <div
+                    ref={dotRef}
+                    className={`liturgy-dot ${isMobile ? "" : "shadow-[0_0_15px_3px_var(--color-brand)]"}`}
+                    style={{
+                      position: "absolute",
+                      top: 0, left: 0,
+                      width: 18,
+                      height: 18,
+                      borderRadius: "50%",
+                      backgroundColor: "var(--color-brand)",
+                      zIndex: 10
+                    }}
+                  />
+
+                  {/* Station Expanding Accordions */}
+                  {STATIONS.map((station, index) => (
                     <div
-                      onClick={() => setSelectedStation(station)}
-                      className="group bg-paper border-t-[3px] border-brand rounded-b-xl shadow-[0_12px_40px_rgba(84,73,59,0.18)] p-4 md:p-8 m-2 pointer-events-auto flex flex-col items-center text-center cursor-pointer md:transition-transform md:hover:scale-[1.02] relative"
+                      key={station.id}
+                      ref={(el) => {
+                        cardRefs.current[index] = el;
+                      }}
+                      className="absolute overflow-hidden z-20 pointer-events-none"
+                      style={getCardStyle(index)}
                     >
-                      <span className="font-body text-[0.65rem] font-bold tracking-[0.3em] uppercase text-brand/80 pb-2">
-                        Part {String(station.id).padStart(2, "0")}
-                      </span>
+                      {/* Accordion Content Container */}
+                      <div
+                        onClick={() => setSelectedStation(station)}
+                        className="group bg-paper border-t-[3px] border-brand rounded-b-xl shadow-[0_12px_40px_rgba(84,73,59,0.18)] p-4 md:p-8 m-2 pointer-events-auto flex flex-col items-center text-center cursor-pointer md:transition-transform md:hover:scale-[1.02] relative"
+                      >
+                        <span className="font-body text-[0.65rem] font-bold tracking-[0.3em] uppercase text-brand/80 pb-2">
+                          Part {String(station.id).padStart(2, "0")}
+                        </span>
 
-                      <h3 className="font-display text-xl md:text-3xl font-semibold text-charcoal leading-snug">
-                        {station.title}
-                      </h3>
+                        <h3 className="font-display text-xl md:text-3xl font-semibold text-charcoal leading-snug">
+                          {station.title}
+                        </h3>
 
-                      <p className="font-display text-xs md:text-sm italic text-earth/60 mt-1 mb-3 md:mb-4">
-                        {station.subtitle}
-                      </p>
-
-                      <div className="w-12 h-px bg-sand mx-auto mb-4" />
-
-                      <p className="font-body text-[0.85rem] md:text-[0.95rem] leading-relaxed text-earth/80">
-                        {station.description}
-                      </p>
-
-                      {station.scriptureRef && (
-                        <p className="font-display text-[0.8rem] italic text-brand/70 mt-5 bg-sand/20 px-4 py-1.5 rounded-full inline-block">
-                          {station.scriptureRef}
+                        <p className="font-display text-xs md:text-sm italic text-earth/60 mt-1 mb-3 md:mb-4">
+                          {station.subtitle}
                         </p>
-                      )}
 
-                      <div className="w-full flex justify-end mt-4">
-                        <div className="flex items-center gap-1.5 text-earth/40 font-body text-[0.55rem] uppercase tracking-widest font-bold group-hover:text-earth/80 transition-colors">
-                          <span>Read More</span>
-                          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
+                        <div className="w-12 h-px bg-sand mx-auto mb-4" />
+
+                        <p className="font-body text-[0.85rem] md:text-[0.95rem] leading-relaxed text-earth/80">
+                          {station.description}
+                        </p>
+
+                        {station.scriptureRef && (
+                          <p className="font-display text-[0.8rem] italic text-brand/70 mt-5 bg-sand/20 px-4 py-1.5 rounded-full inline-block">
+                            {station.scriptureRef}
+                          </p>
+                        )}
+
+                        <div className="w-full flex justify-end mt-4">
+                          <div className="flex items-center gap-1.5 text-earth/40 font-body text-[0.55rem] uppercase tracking-widest font-bold group-hover:text-earth/80 transition-colors">
+                            <span>Read More</span>
+                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              )}
+            </div>{/* end inner clip wrapper */}
+
+            {/* Keep Scrolling Indicator */}
+            <div ref={keepScrollingRef} className="absolute bottom-6 left-6 z-40 flex items-center gap-2 text-charcoal/40 bg-paper/50 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-sand/50 pointer-events-none md:bottom-8 md:left-8">
+              <span className="font-subheading-work text-[0.6rem] md:text-[0.65rem] font-bold tracking-[0.2em] uppercase">Keep Scrolling</span>
+              <div className="animate-bounce">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
               </div>
-            )}
-          </div>{/* end inner clip wrapper */}
+            </div>
+
           </div>
         </div>
       </section>
