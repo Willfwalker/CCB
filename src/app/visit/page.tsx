@@ -121,7 +121,7 @@ export default function VisitPage() {
                                         <button
                                             key={label}
                                             onClick={() => setMinistriesOpen(true)}
-                                            className="font-subheading-work text-[0.9rem] font-medium tracking-[0.18em] capitalize transition-colors duration-500 animate-nav-in text-earth hover:text-charcoal"
+                                            className="font-subheading-work text-[0.9rem] font-medium tracking-[0.18em] capitalize transition-colors duration-500 animate-nav-in text-earth hover:text-charcoal cursor-pointer"
                                             style={{ animationDelay: `${0.1 + i * 0.08}s` }}
                                         >
                                             {label}
@@ -192,7 +192,7 @@ export default function VisitPage() {
                                     <button
                                         key={label}
                                         onClick={() => { setMenuOpen(false); setMinistriesOpen(true); }}
-                                        className="font-subheading-work text-[0.95rem] font-medium tracking-[0.18em] uppercase text-paper/80 hover:text-gold-dk py-3 border-b border-paper/10 transition-colors duration-300 text-left"
+                                        className="font-subheading-work text-[0.95rem] font-medium tracking-[0.18em] uppercase text-paper/80 hover:text-gold-dk py-3 border-b border-paper/10 transition-colors duration-300 text-left cursor-pointer"
                                     >
                                         {label}
                                     </button>

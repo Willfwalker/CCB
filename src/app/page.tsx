@@ -394,7 +394,7 @@ export default function Home() {
                     <button
                       key={label}
                       onClick={() => setMinistriesOpen(true)}
-                      className={`font-subheading-work text-[0.9rem] font-medium tracking-[0.18em] capitalize transition-colors duration-500 animate-nav-in ${scrolled
+                      className={`font-subheading-work text-[0.9rem] font-medium tracking-[0.18em] capitalize transition-colors duration-500 animate-nav-in cursor-pointer ${scrolled
                         ? "text-earth hover:text-charcoal"
                         : "text-paper hover:text-paper/70"
                         }`}
@@ -490,7 +490,7 @@ export default function Home() {
                   <button
                     key={label}
                     onClick={() => { setMenuOpen(false); setMinistriesOpen(true); }}
-                    className="font-subheading-work text-[0.95rem] font-medium tracking-[0.18em] uppercase text-paper/80 hover:text-poppy py-3 border-b border-paper/10 transition-colors duration-300 text-left"
+                    className="font-subheading-work text-[0.95rem] font-medium tracking-[0.18em] uppercase text-paper/80 hover:text-poppy py-3 border-b border-paper/10 transition-colors duration-300 text-left cursor-pointer"
                   >
                     {label}
                   </button>

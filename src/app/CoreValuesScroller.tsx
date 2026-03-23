@@ -90,14 +90,19 @@ export default function CoreValuesScroller() {
 
     const [selectedValue, setSelectedValue] = useState<typeof VALUES[0] | null>(null);
 
-    // Lock body scroll when modal is open
+    // Lock body scroll and disable ScrollTrigger when modal is open
     useEffect(() => {
         if (selectedValue) {
             document.body.style.overflow = "hidden";
+            ScrollTrigger.getAll().forEach(st => st.disable());
         } else {
             document.body.style.overflow = "";
+            ScrollTrigger.getAll().forEach(st => st.enable());
         }
-        return () => { document.body.style.overflow = ""; };
+        return () => {
+            document.body.style.overflow = "";
+            ScrollTrigger.getAll().forEach(st => st.enable());
+        };
     }, [selectedValue]);
     const [layout, setLayout] = useState<{
         w: number;
@@ -190,7 +195,7 @@ export default function CoreValuesScroller() {
                 trigger: containerRef.current,
                 pin: true,
                 start: "top top",
-                end: isMobile ? "+=1500" : "+=2500",
+                end: isMobile ? "+=1000" : "+=1800",
                 scrub: 1, // lowered from 2 to keep up better during fast scrolling
                 invalidateOnRefresh: true, // helps cold load recalculations
                 fastScrollEnd: true, // instantly snap to end state if user aggressively scrolls past
@@ -260,7 +265,7 @@ export default function CoreValuesScroller() {
         t += 1.0;
 
         // Final hold
-        master.to({}, { duration: 1.5 }, t);
+        master.to({}, { duration: 0.5 }, t);
 
     }, { scope: containerRef, dependencies: [layout] });
 
@@ -384,12 +389,25 @@ export default function CoreValuesScroller() {
 
             {/* Modal Overlay for Extended Details */}
             {selectedValue && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+                    onTouchMove={(e) => {
+                        // Allow scrolling inside the modal content, but prevent background scroll
+                        const modal = e.currentTarget.querySelector('[data-modal-content]') as HTMLElement | null;
+                        if (modal && modal.contains(e.target as Node)) return;
+                        e.preventDefault();
+                    }}
+                    onWheel={(e) => {
+                        const modal = e.currentTarget.querySelector('[data-modal-content]') as HTMLElement | null;
+                        if (modal && modal.contains(e.target as Node)) return;
+                        e.stopPropagation();
+                    }}
+                >
                     <div
                         className="absolute inset-0 bg-charcoal/80 md:backdrop-blur-sm cursor-pointer animate-fade-in"
                         onClick={() => setSelectedValue(null)}
                     />
-                    <div className="relative bg-paper rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-reveal-scale overflow-y-auto max-h-[85vh] z-50 border-t-[4px] overscroll-contain" style={{ borderColor: selectedValue.colorVar }}>
+                    <div data-modal-content className="relative bg-paper rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-reveal-scale overflow-y-auto max-h-[85vh] z-50 border-t-[4px] overscroll-contain" style={{ borderColor: selectedValue.colorVar }}>
                         <button
                             onClick={() => setSelectedValue(null)}
                             className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-earth/60 hover:text-charcoal hover:bg-sand/30 rounded-full transition-colors text-xl"

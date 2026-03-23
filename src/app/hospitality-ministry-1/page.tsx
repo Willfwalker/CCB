@@ -85,7 +85,7 @@ export default function HospitalityMinistryPage() {
                             {NAV_ITEMS.map((label, i) => {
                                 if (label === "Ministries") {
                                     return (
-                                        <button key={label} onClick={() => setMinistriesOpen(true)} className="font-subheading-work text-[0.9rem] font-medium tracking-[0.18em] capitalize transition-colors duration-500 animate-nav-in text-earth hover:text-charcoal" style={{ animationDelay: `${0.1 + i * 0.08}s` }}>
+                                        <button key={label} onClick={() => setMinistriesOpen(true)} className="font-subheading-work text-[0.9rem] font-medium tracking-[0.18em] capitalize transition-colors duration-500 animate-nav-in text-earth hover:text-charcoal cursor-pointer" style={{ animationDelay: `${0.1 + i * 0.08}s` }}>
                                             {label}
                                         </button>
                                     );
@@ -119,7 +119,7 @@ export default function HospitalityMinistryPage() {
                         {NAV_ITEMS.map((label) => {
                             if (label === "Ministries") {
                                 return (
-                                    <button key={label} onClick={() => { setMenuOpen(false); setMinistriesOpen(true); }} className="font-subheading-work text-[0.95rem] font-medium tracking-[0.18em] uppercase text-charcoal/80 hover:text-poppy py-3 border-b border-charcoal/10 transition-colors duration-300 text-left">
+                                    <button key={label} onClick={() => { setMenuOpen(false); setMinistriesOpen(true); }} className="font-subheading-work text-[0.95rem] font-medium tracking-[0.18em] uppercase text-charcoal/80 hover:text-poppy py-3 border-b border-charcoal/10 transition-colors duration-300 text-left cursor-pointer">
                                         {label}
                                     </button>
                                 );
