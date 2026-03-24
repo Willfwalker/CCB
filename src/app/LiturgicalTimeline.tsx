@@ -26,7 +26,7 @@ interface LiturgicalStation {
   extendedVerses?: string[];
 }
 
-const STATIONS: LiturgicalStation[] = [
+const DEFAULT_STATIONS: LiturgicalStation[] = [
   {
     id: 1,
     title: "Confession & Pardon",
@@ -69,15 +69,14 @@ const STATIONS: LiturgicalStation[] = [
   },
 ];
 
-const STATION_COUNT = STATIONS.length;
-
 /* ─── Path generation ──────────────────────────────── */
 
 function buildWindingPath(
   w: number,
   isMobile: boolean,
   padTop: number,
-  stepY: number
+  stepY: number,
+  stationCount: number
 ): { d: string; stops: { x: number; y: number; side: "left" | "right" | "center" }[] } {
   const stops: { x: number; y: number; side: "left" | "right" | "center" }[] = [];
 
@@ -86,7 +85,7 @@ function buildWindingPath(
 
   stops.push({ x: w / 2, y: padTop + 160, side: "center" });
 
-  for (let i = 0; i < STATION_COUNT; i++) {
+  for (let i = 0; i < stationCount; i++) {
     const isRight = i % 2 === 0;
 
     stops.push({
@@ -116,7 +115,13 @@ function buildWindingPath(
 
 /* ─── Component ────────────────────────────────────── */
 
-export default function LiturgicalTimeline() {
+interface LiturgicalTimelineProps {
+  stations?: LiturgicalStation[];
+}
+
+export default function LiturgicalTimeline({ stations }: LiturgicalTimelineProps) {
+  const STATIONS = (stations && stations.length > 0 ? stations : DEFAULT_STATIONS).slice(0, 4);
+  const STATION_COUNT = STATIONS.length;
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -168,7 +173,7 @@ export default function LiturgicalTimeline() {
     const padBottom = h / 2;
 
     const computedHeight = padTop + padBottom + stepY * STATION_COUNT;
-    const data = buildWindingPath(w, isMobile, padTop, stepY);
+    const data = buildWindingPath(w, isMobile, padTop, stepY, STATION_COUNT);
     setPathData({ ...data, height: computedHeight, stepY, w });
   }, [isMobile]);
 

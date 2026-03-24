@@ -9,7 +9,7 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 
 gsap.registerPlugin(ScrollTrigger, DrawSVGPlugin);
 
-const VALUES = [
+const DEFAULT_VALUES = [
     {
         id: 1,
         title: "Grace",
@@ -77,7 +77,20 @@ const VALUES = [
     },
 ];
 
-export default function CoreValuesScroller() {
+interface CoreValuesScrollerProps {
+    values?: Array<{
+        id: number;
+        title: string;
+        subtitle: string;
+        colorVar: string;
+        description: string;
+        extendedDetails: string;
+        verses: { reference: string; text: string }[];
+    }>;
+}
+
+export default function CoreValuesScroller({ values }: CoreValuesScrollerProps) {
+    const VALUES = (values && values.length > 0 ? values : DEFAULT_VALUES).slice(0, 5);
     const containerRef = useRef<HTMLElement>(null);
     const viewportRef = useRef<HTMLDivElement>(null);
     const titleTextRef = useRef<HTMLDivElement>(null);

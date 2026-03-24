@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const DOCTRINES = [
+const DEFAULT_DOCTRINES = [
     {
         category: "The Trinity",
         content:
@@ -52,7 +52,7 @@ const DOCTRINES = [
     },
 ];
 
-const PRESS_RESOURCES = [
+const DEFAULT_PRESS_RESOURCES = [
     {
         type: "Podcast",
         title: "Christ Church Bellingham Podcast",
@@ -83,7 +83,14 @@ const PRESS_RESOURCES = [
     },
 ];
 
-export default function DoctrineSection() {
+interface DoctrineSectionProps {
+    doctrines?: { category: string; content: string }[];
+    pressResources?: { type: string; title: string; description: string; url: string; color: string }[];
+}
+
+export default function DoctrineSection({ doctrines, pressResources }: DoctrineSectionProps) {
+    const DOCTRINES = doctrines && doctrines.length > 0 ? doctrines : DEFAULT_DOCTRINES;
+    const PRESS_RESOURCES = pressResources && pressResources.length > 0 ? pressResources : DEFAULT_PRESS_RESOURCES;
     const [openDoctrine, setOpenDoctrine] = useState<number | null>(0);
     const containerRef = useRef<HTMLElement>(null);
     const [isVisible, setIsVisible] = useState(false);
