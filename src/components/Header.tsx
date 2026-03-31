@@ -61,8 +61,8 @@ export default function Header({ variant = "paper" }: HeaderProps) {
   const showDoctrineInLoop = isTransparent || isPaper;
   const showSeparateDoctrine = isNavy || isMinistry;
   const navItems = showDoctrineInLoop
-    ? ["Visit Us", "Doctrine", "Ministries", "Media"]
-    : ["Visit Us", "Ministries", "Media"];
+    ? ["Visit Us", "Doctrine", "Ministries"]
+    : ["Visit Us", "Ministries"];
 
   // Give link href
   const giveHref = isTransparent ? "#give" : "/#give";

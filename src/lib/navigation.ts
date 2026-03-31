@@ -34,7 +34,6 @@ export function getNavHref(label: string): string {
   switch (label) {
     case "Doctrine": return "/doctrine";
     case "Visit Us": return "/visit";
-    case "Media": return "/media";
     default: return `/#${label.toLowerCase().replace(/\s+/g, "-")}`;
   }
 }
