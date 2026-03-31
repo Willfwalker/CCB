@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { createPortal } from "react-dom";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Link from "next/link";
@@ -102,19 +103,51 @@ export default function CoreValuesScroller({ values }: CoreValuesScrollerProps) 
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
     const [selectedValue, setSelectedValue] = useState<typeof VALUES[0] | null>(null);
+    const modalScrollRef = useRef<HTMLDivElement>(null);
 
     // Lock body scroll and disable ScrollTrigger when modal is open
+    const scrollYRef = useRef(0);
     useEffect(() => {
         if (selectedValue) {
+            scrollYRef.current = window.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollYRef.current}px`;
+            document.body.style.left = "0";
+            document.body.style.right = "0";
             document.body.style.overflow = "hidden";
             ScrollTrigger.getAll().forEach(st => st.disable());
         } else {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
             document.body.style.overflow = "";
+            window.scrollTo(0, scrollYRef.current);
             ScrollTrigger.getAll().forEach(st => st.enable());
         }
         return () => {
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.left = "";
+            document.body.style.right = "";
             document.body.style.overflow = "";
             ScrollTrigger.getAll().forEach(st => st.enable());
+        };
+    }, [selectedValue]);
+
+    // Native event listeners to stop GSAP from intercepting wheel/touch on the modal
+    useEffect(() => {
+        const el = modalScrollRef.current;
+        if (!el || !selectedValue) return;
+        const stopWheel = (e: WheelEvent) => { e.stopPropagation(); };
+        const stopTouch = (e: TouchEvent) => { e.stopPropagation(); };
+        el.addEventListener("wheel", stopWheel, { passive: false, capture: false });
+        el.addEventListener("touchstart", stopTouch, { passive: false, capture: false });
+        el.addEventListener("touchmove", stopTouch, { passive: false, capture: false });
+        return () => {
+            el.removeEventListener("wheel", stopWheel);
+            el.removeEventListener("touchstart", stopTouch);
+            el.removeEventListener("touchmove", stopTouch);
         };
     }, [selectedValue]);
     const [layout, setLayout] = useState<{
@@ -400,30 +433,47 @@ export default function CoreValuesScroller({ values }: CoreValuesScrollerProps) 
 
             </section>
 
-            {/* Modal Overlay for Extended Details */}
-            {selectedValue && (
+            {/* Modal Overlay for Extended Details — portaled to document.body */}
+            {selectedValue && createPortal(
                 <div
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-                    onTouchMove={(e) => {
-                        // Allow scrolling inside the modal content, but prevent background scroll
-                        const modal = e.currentTarget.querySelector('[data-modal-content]') as HTMLElement | null;
-                        if (modal && modal.contains(e.target as Node)) return;
-                        e.preventDefault();
-                    }}
-                    onWheel={(e) => {
-                        const modal = e.currentTarget.querySelector('[data-modal-content]') as HTMLElement | null;
-                        if (modal && modal.contains(e.target as Node)) return;
-                        e.stopPropagation();
+                    className="animate-fade-in"
+                    style={{
+                        position: "fixed",
+                        inset: 0,
+                        zIndex: 9999,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "1rem",
                     }}
                 >
                     <div
-                        className="absolute inset-0 bg-charcoal/80 md:backdrop-blur-sm cursor-pointer animate-fade-in"
+                        style={{ position: "absolute", inset: 0, background: "rgba(43,39,35,0.8)", cursor: "pointer" }}
                         onClick={() => setSelectedValue(null)}
                     />
-                    <div data-modal-content className="relative bg-paper rounded-xl shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto transform transition-all animate-reveal-scale overflow-y-auto max-h-[85vh] z-50 border-t-[4px] overscroll-contain" style={{ borderColor: selectedValue.colorVar }}>
+                    <div
+                        ref={modalScrollRef}
+                        className="animate-reveal-scale"
+                        style={{
+                            position: "relative",
+                            background: "var(--color-paper, #f5f0e8)",
+                            borderRadius: "0.75rem",
+                            boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
+                            maxWidth: "42rem",
+                            width: "100%",
+                            maxHeight: "85vh",
+                            overflowY: "scroll",
+                            WebkitOverflowScrolling: "touch",
+                            overscrollBehavior: "contain",
+                            zIndex: 50,
+                            borderTop: `4px solid ${selectedValue.colorVar}`,
+                            padding: "2rem",
+                        }}
+                    >
                         <button
                             onClick={() => setSelectedValue(null)}
-                            className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-earth/60 hover:text-charcoal hover:bg-sand/30 rounded-full transition-colors text-xl"
+                            className="text-earth/60 hover:text-charcoal hover:bg-sand/30 rounded-full transition-colors"
+                            style={{ position: "absolute", top: "1rem", right: "1rem", width: "2.5rem", height: "2.5rem", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.25rem", zIndex: 10 }}
                             aria-label="Close details"
                         >
                             ✕
@@ -472,7 +522,8 @@ export default function CoreValuesScroller({ values }: CoreValuesScrollerProps) 
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </>
     );
